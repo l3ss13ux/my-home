@@ -17,11 +17,13 @@ public class AnnonceController {
     private final AnnonceService annonceService;
 
     @GetMapping()
+    @CrossOrigin(origins = "http://localhost:5173")
     public List<Annonce> getAnnonces() {
         return annonceService.getAnnonces();
     }
 
     @GetMapping("/{identifiant}")
+    @CrossOrigin(origins = "http://localhost:5173")
     public Annonce getAnnonce(@PathVariable("identifiant") Integer id) {
         return annonceService.getAnnonce(id);
     }
@@ -31,7 +33,7 @@ public class AnnonceController {
         return annonceService.getFavoris();
     }
 
-    @GetMapping("/{ville}")
+    @GetMapping("/ville/{ville}")
     public List<Annonce> getAnnoncesParVille(@PathVariable("ville") Ville ville) {
         return annonceService.getAnnoncesParVille(ville);
     }

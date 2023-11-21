@@ -20,7 +20,7 @@ public class AnnonceService {
     }
 
     public Annonce getAnnonce(Integer id) {
-        return annonceRepository.getOne(id);
+        return annonceRepository.findById(id).get();
     }
 
     public List<Annonce> getFavoris() {
